@@ -1,0 +1,20 @@
+{
+  "name": "SYNTHETIC SAMPLE (not real crime data)",
+  "source_url": "https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2",
+  "attribution": "City of Chicago Data Portal (verify the licence/terms on the portal page)",
+  "is_synthetic": true,
+  "date_min": "2020-01-01 01:52:00",
+  "date_max": "2022-12-30 23:33:00",
+  "n_categories": 7,
+  "n_cells": 846,
+  "column_mapping": {
+    "incident_id": "ID",
+    "timestamp": "Date",
+    "category": "Primary Type",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "area": "Community Area"
+  },
+  "grid_cell_degrees": 0.01,
+  "timestamp_note": "Local wall-clock time of the reporting city; no time-zone conversion applied."
+}

@@ -1,0 +1,58 @@
+# CrimeScope configuration -- edit this file to point at another dataset.
+dataset:
+  name: "SYNTHETIC SAMPLE (not real crime data)"
+  source_url: "https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2"
+  attribution: "City of Chicago Data Portal (verify the licence/terms on the portal page)"
+  raw_path: "data/raw/crimes.csv"      # use forward slashes, they also work on Windows
+  is_synthetic: true
+
+# canonical name -> list of possible source column names (case-insensitive, first match wins)
+columns:
+  incident_id: ["ID", "incident_id", "DR_NO", "case_id"]
+  timestamp:   ["Date", "DATE OCC", "occurred_at", "timestamp"]
+  category:    ["Primary Type", "Crm Cd Desc", "category", "offense"]
+  latitude:    ["Latitude", "LAT", "lat"]
+  longitude:   ["Longitude", "LON", "lon", "lng"]
+  area:        ["Community Area", "AREA NAME", "District", "area"]
+  description: ["Description", "Crm Cd Desc 2"]
+  location_type: ["Location Description", "Premis Desc"]
+required_columns: ["timestamp", "category", "latitude", "longitude"]   # pipeline stops if missing
+
+timestamp_formats:      # tried in order; first one that parses wins
+  - "MM/dd/yyyy hh:mm:ss a"
+  - "yyyy-MM-dd'T'HH:mm:ss.SSS"
+  - "yyyy-MM-dd'T'HH:mm:ss"
+  - "yyyy-MM-dd HH:mm:ss"
+  - "MM/dd/yyyy HH:mm"
+
+validation:
+  # Plausible bounding box for the study area. Set all four to null to only use global limits.
+  lat_min: 41.60
+  lat_max: 42.10
+  lon_min: -87.95
+  lon_max: -87.50
+  min_year: 2000
+  max_year: 2100           # records after this are treated as malformed dates
+  # With no incident_id column only exact full-row duplicates are removed (never "similar" rows).
+
+features:
+  grid_cell_degrees: 0.01  # about 1.1 km north-south; see docs/methodology.md
+
+spark:
+  master: "local[*]"
+  driver_memory: "3g"
+  shuffle_partitions: 16
+  output_partitions: 8
+
+paths:
+  processed_dir: "data/processed"
+  metrics_dir: "outputs/metrics"
+  reports_dir: "outputs/reports"
+
+analytics:
+  map_hour_block: 3          # map cube stores hours in blocks of N hours (keeps the map cube small)
+  hotspot_min_incidents: 10  # cells with fewer recorded incidents are not ranked
+  kmeans_k_min: 4            # K is chosen automatically in [k_min, k_max] by silhouette score
+  kmeans_k_max: 10
+  kmeans_min_cell_incidents: 10
+  kmeans_seed: 42

@@ -1,0 +1,42 @@
+{
+  "run_at_utc": "2026-10-13T19:48:20+00:00",
+  "tag": "sample",
+  "spark_version": "4.0.1",
+  "master": "local[*]",
+  "default_parallelism": 1,
+  "input_file": "/home/claude/CrimeScope/data/sample/synthetic_sample.csv",
+  "input_file_bytes": 1287929,
+  "input_records": 20414,
+  "retained_records": 18818,
+  "input_partitions": 1,
+  "output_partitions": 8,
+  "stage_seconds": {
+    "ingest_and_map_s": 5.8,
+    "clean_and_dedup_s": 12.471,
+    "features_and_write_clean_s": 4.85,
+    "aggregations_s": 15.672,
+    "cubes_s": 3.157,
+    "hotspots_and_clustering_s": 30.207
+  },
+  "total_seconds": 82.98,
+  "records_per_second": 246.0,
+  "output_bytes_clean": 814188,
+  "output_bytes_total": 1166640,
+  "aggregate_row_counts": {
+    "agg_year_month": 36,
+    "agg_hour_weekday": 168,
+    "agg_month_hour": 288,
+    "agg_category": 7,
+    "agg_category_year_month": 252,
+    "agg_category_hour": 168,
+    "agg_category_weekday": 49,
+    "agg_weekend": 2,
+    "agg_area": 77,
+    "agg_area_year_month": 2768,
+    "agg_cell": 846,
+    "agg_cell_year": 2097,
+    "agg_cell_category": 4051,
+    "agg_cell_hour": 8986
+  },
+  "is_synthetic": true
+}

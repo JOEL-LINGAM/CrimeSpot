@@ -1,0 +1,43 @@
+{
+  "input_records": 20414,
+  "excluded_by_reason": {
+    "missing_timestamp": 213,
+    "malformed_or_out_of_range_timestamp": 194,
+    "missing_category": 212,
+    "missing_coordinates": 192,
+    "invalid_coordinates": 185,
+    "outside_study_area": 211
+  },
+  "excluded_total": 1207,
+  "valid_before_dedup": 19207,
+  "duplicates_removed": 389,
+  "retained_records": 18818,
+  "reconciles": true,
+  "raw_missing_values": {
+    "incident_id": {
+      "missing": 0,
+      "pct": 0.0
+    },
+    "timestamp": {
+      "missing": 213,
+      "pct": 1.0434
+    },
+    "category": {
+      "missing": 212,
+      "pct": 1.0385
+    },
+    "latitude": {
+      "missing": 192,
+      "pct": 0.9405
+    },
+    "longitude": {
+      "missing": 192,
+      "pct": 0.9405
+    },
+    "area": {
+      "missing": 0,
+      "pct": 0.0
+    }
+  },
+  "dedup_rule": "one row per incident_id (earliest timestamp kept)"
+}

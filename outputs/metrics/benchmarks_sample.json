@@ -1,0 +1,72 @@
+{
+  "recorded_at_utc": "2026-10-13T19:58:14Z",
+  "dataset_tag": "sample",
+  "is_synthetic": true,
+  "machine": {
+    "platform": "Linux-6.18.44-fc-v114-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 1,
+    "spark_master": "local[*]",
+    "driver_memory": "3g"
+  },
+  "note": "Cold-start runs on a single machine in Spark local mode; not a distributed-cluster measurement.",
+  "runs": [
+    {
+      "requested_rows": 2000,
+      "repeat": 1,
+      "input_records": 2000,
+      "retained_records": 1838,
+      "input_file_bytes": 1287929,
+      "total_seconds": 72.497,
+      "stage_seconds": {
+        "ingest_and_map_s": 5.925,
+        "clean_and_dedup_s": 10.663,
+        "features_and_write_clean_s": 3.713,
+        "aggregations_s": 15.511,
+        "cubes_s": 2.373,
+        "hotspots_and_clustering_s": 24.04
+      },
+      "records_per_second": 27.6,
+      "input_partitions": 1,
+      "output_bytes_total": 246062
+    },
+    {
+      "requested_rows": 6000,
+      "repeat": 1,
+      "input_records": 6000,
+      "retained_records": 5514,
+      "input_file_bytes": 1287929,
+      "total_seconds": 34.031,
+      "stage_seconds": {
+        "ingest_and_map_s": 0.326,
+        "clean_and_dedup_s": 2.983,
+        "features_and_write_clean_s": 1.539,
+        "aggregations_s": 9.531,
+        "cubes_s": 1.85,
+        "hotspots_and_clustering_s": 17.08
+      },
+      "records_per_second": 176.3,
+      "input_partitions": 1,
+      "output_bytes_total": 472066
+    },
+    {
+      "requested_rows": 12000,
+      "repeat": 1,
+      "input_records": 12000,
+      "retained_records": 11042,
+      "input_file_bytes": 1287929,
+      "total_seconds": 29.685,
+      "stage_seconds": {
+        "ingest_and_map_s": 0.202,
+        "clean_and_dedup_s": 2.052,
+        "features_and_write_clean_s": 1.081,
+        "aggregations_s": 8.135,
+        "cubes_s": 2.05,
+        "hotspots_and_clustering_s": 15.603
+      },
+      "records_per_second": 404.2,
+      "input_partitions": 1,
+      "output_bytes_total": 770953
+    }
+  ]
+}

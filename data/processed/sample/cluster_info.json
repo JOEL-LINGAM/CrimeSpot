@@ -1,0 +1,38 @@
+{
+  "cells_used": 459,
+  "min_cell_incidents": 10,
+  "scan": [
+    {
+      "k": 4,
+      "silhouette": 0.6322
+    },
+    {
+      "k": 5,
+      "silhouette": 0.5312
+    },
+    {
+      "k": 6,
+      "silhouette": 0.5262
+    },
+    {
+      "k": 7,
+      "silhouette": 0.5064
+    },
+    {
+      "k": 8,
+      "silhouette": 0.4945
+    },
+    {
+      "k": 9,
+      "silhouette": 0.4989
+    },
+    {
+      "k": 10,
+      "silhouette": 0.4824
+    }
+  ],
+  "chosen_k": 4,
+  "method": "KMeans(weightCol=incidents) on [lon*cos(mean_lat), lat]",
+  "seed": 42,
+  "silhouette": 0.6322
+}
